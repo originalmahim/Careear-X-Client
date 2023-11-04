@@ -1,20 +1,23 @@
-import { Outlet } from "react-router-dom";
-
+import { NavLink, Outlet } from "react-router-dom";
+import './Header.css'
 
 const Header = () => {
           const links = <>
+          
           <li className="flex">
-          <a   className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-violet-400 border-violet-400">Link</a>
+          <NavLink to= '/'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Home</NavLink>
           </li>
           <li className="flex">
-          <a   className="flex items-center px-4 -mb-1 border-b-2 border-transparent ">Link</a>
+          <NavLink to= '/contact'  className="text-xl flex items-center px-4 -mb-1 border-b-2  ">Jobs</NavLink>
           </li>
           <li className="flex">
-          <a   className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-violet-400 border-violet-400">Link</a>
+          <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2  ">Link</NavLink>
           </li>
           <li className="flex">
-          <a   className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-violet-400 border-violet-400">Link</a>
+          <NavLink  to='/balu' className="text-xl flex items-center px-4 -mb-1 border-b-2  ">Link</NavLink>
           </li>
+          
+          
           </>
           return (
           <div>
@@ -22,7 +25,7 @@ const Header = () => {
           <header className=" max-w-7xl mx-auto p-4">
           <div className="container flex justify-between h-16 mx-auto">
           <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" className="flex items-center p-2">
-          <h1 className="flex gap-1 text-xl font-medium">
+          <h1 className="flex gap-1 text-xl font-medium uppercase">
           <img src="https://i.ibb.co/KFN92pr/logo-dark.png" alt="logo" />
           Career Canvas
           </h1>
@@ -31,8 +34,8 @@ const Header = () => {
           {links}
           </ul>
           <div className="items-center flex-shrink-0 hidden lg:flex">
-          <button className="self-center px-8 py-3 rounded">Sign in</button>
-          <button className="self-center px-8 py-3 font-semibold rounded bg-violet-400 dark:text-gray-900">Sign up</button>
+          <button className="self-center px-8 py-3 rounded">Apply Now</button>
+          <button className="self-center px-8 py-3 font-semibold rounded bg-violet-400 text-white">Sign In</button>
           </div>
           <button className="p-4 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">

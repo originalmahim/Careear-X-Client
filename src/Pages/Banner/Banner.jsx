@@ -8,10 +8,10 @@ const Banner = () => {
             <div className="mt-44 w-full lg:w-7/12 md:w-full mb-4 lg:mb-0 lg:pr-5">
               <h2 className="">We have 150,000+ live jobs</h2>
               <h1 className="text-2xl lg:text-5xl font-semibold mb-3 text-center lg:text-left">
-                Find your jobs with <br /> <span className="text-primary font-bold">Career Canvas</span>
+                Find your jobs <br /> with <span className="text-primary font-bold">Career X</span>
               </h1>
               <p className="text-lg text-gray-500 mb-0 text-center lg:text-left">
-                Find jobs, create trackable resumes and enrich your applications. Carefully crafted after analyzing the needs of different industries.
+                Find jobs, create trackable resumes and enrich your applications. <br /> Carefully crafted after analyzing the needs of different industries.
               </p>
             </div>
 

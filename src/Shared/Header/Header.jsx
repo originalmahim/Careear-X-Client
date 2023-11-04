@@ -36,9 +36,12 @@ const Header = () => {
           <ul className="items-stretch hidden space-x-3 lg:flex">
           {links}
           </ul>
-          <div className="items-center flex-shrink-0 hidden lg:flex">
-          <button className="self-center px-8 py-3 rounded">Apply Now</button>
-          <button className="self-center px-8 py-3 font-semibold rounded bg-violet-400 text-white">Sign In</button>
+          <div className="items-center gap-2 flex-shrink-0 hidden lg:flex">
+          <button className=" flex items-center uppercase gap-2">
+          <span className="relative flex-shrink-0 w-2 h-2 rounded-full bg-violet-400 text-xl">
+          <span className="absolute flex-shrink-0 w-3 h-3 rounded-full -left-1 -top-1 animate-ping bg-violet-400"></span>
+          </span>Apply Now</button>
+          <button className="btn bg-violet-400 text-white">Sign In</button>
           </div>
           <button className="p-4 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">

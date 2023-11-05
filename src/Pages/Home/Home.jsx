@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import Portfolio from "../JobFeatured/Portfolio";
 import Brands from "./Brands";
+import Download from "./Download";
 import Testimonial from "./Testimonial";
 
 
@@ -16,6 +17,7 @@ const Home = () => {
            <div className="lg:hidden">
            <Brands></Brands>
           </div>                  
+           <Download></Download>
           </div>
           );
 };

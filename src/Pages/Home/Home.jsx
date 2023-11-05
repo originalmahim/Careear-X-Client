@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import Portfolio from "../JobFeatured/Portfolio";
 import Brands from "./Brands";
+import Testimonial from "./Testimonial";
 
 
 const Home = () => {
@@ -8,7 +9,8 @@ const Home = () => {
           <div >
            <Banner></Banner>
            <Brands></Brands>
-           <Portfolio></Portfolio>                  
+           <Portfolio></Portfolio>
+           <Testimonial></Testimonial>                  
           </div>
           );
 };

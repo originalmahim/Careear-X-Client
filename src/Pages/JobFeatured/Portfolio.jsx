@@ -4,43 +4,43 @@ import { FaCalendarAlt, FaClock, FaDollarSign, FaUser } from 'react-icons/fa';
 const jobData = [
   {
     category: "Branding",
-    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty2.png",
+    brandImg: "https://wp.alithemes.com/html/jobhub/frontend/assets/imgs/page/job/digital.png",
     responsibilities: "Sample responsibilities for Branding job",
     EducationQualifications: "Bachelor's degree in Marketing or related field",
     website: "https://brandingco.example",
     email: "contact@brandingco.example",
-    headquarters: "Brandville, USA",
+    headquarters: "California, USA",
     officeImg: "https://i.ibb.co/64WfFPt/image-01.jpg",
     Description: "Join our team at AliStudio, Inc as a Digital Marketing Manager! We are looking for a dynamic professional with 2-3 years of experience who can showcase a stellar portfolio. You will be responsible for developing and implementing digital marketing strategies to drive business growth and brand recognition. If you have a passion for marketing and a track record of success, we want to hear from you.",
-    employer: "AliStudio, Inc",
-    jobTitle: "Digital Marketing Manager",
+    employer: "Branda Studio, Inc",
+    jobTitle: "Digital Marketing Expert",
     jobType: "On-Site",
-    postingDate: "1",
+    postingDate: "2",
     deadline: "Application Deadline: Nov 15, 2023",
     salary: "50000",
     applicantsNumber: "5",
   },
   {
     category: "Branding",
-    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty2.png",
+    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty7.png",
     responsibilities: "Sample responsibilities for Branding job",
     EducationQualifications: "Bachelor's degree in Marketing or related field",
-    website: "https://brandingco.example",
-    email: "contact@brandingco.example",
+    website: "https://andingco.example",
+    email: "contact@andingco.example",
     headquarters: "Brandville, USA",
     officeImg: "https://i.ibb.co/64WfFPt/image-01.jpg",
     Description: "Join our team at AliStudio, Inc as a Digital Marketing Manager! We are looking for a dynamic professional with 2-3 years of experience who can showcase a stellar portfolio. You will be responsible for developing and implementing digital marketing strategies to drive business growth and brand recognition. If you have a passion for marketing and a track record of success, we want to hear from you.",
     employer: "AliStudio, Inc",
-    jobTitle: "Digital Marketing Manager",
+    jobTitle: "Marketing Manager Lead",
     jobType: "On-Site",
-    postingDate: "1",
+    postingDate: "3",
     deadline: "Application Deadline: Nov 15, 2023",
     salary: "50000",
     applicantsNumber: "5",
   },
   {
     category: "Marketing",
-    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty2.png",
+    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty9.png",
     responsibilities: "Sample responsibilities for Marketing job",
     EducationQualifications: "Bachelor's degree in Marketing or related field",
     website: "https://marketingco.example",
@@ -58,7 +58,7 @@ const jobData = [
   },
   {
     category: "Marketing",
-    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty2.png",
+    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty11.png",
     responsibilities: "Sample responsibilities for Marketing job",
     EducationQualifications: "Bachelor's degree in Marketing or related field",
     website: "https://marketingco.example",
@@ -76,7 +76,7 @@ const jobData = [
   },
   {
     category: "Development",
-    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty2.png",
+    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty8.png",
     responsibilities: "Sample responsibilities for Development job",
     EducationQualifications: "Bachelor's degree in Computer Science or related field",
     website: "https://devtech.example",
@@ -94,7 +94,7 @@ const jobData = [
   },
   {
     category: "Development",
-    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty2.png",
+    brandImg: "https://themesflat.co/html/jobtex/images/logo-company/cty4.png",
     responsibilities: "Sample responsibilities for Development job",
     EducationQualifications: "Bachelor's degree in Computer Science or related field",
     website: "https://devtech.example",
@@ -183,7 +183,7 @@ const Portfolio = () => {
       </ul>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-5">
-        {jobData.map((job, index) => (
+        {jobData.slice(0,6).map((job, index) => (
           <PortfolioCard
             key={index}
             showCard={showCard}
@@ -198,6 +198,11 @@ const Portfolio = () => {
             applicantsNumber={job.applicantsNumber}
           />
         ))}
+      </div>
+      <div className="flex items-center justify-center">
+        <Link to= "/alljobs" >
+        <button className="btn bg-violet-500 text-white hover:bg-violet-400">Show More</button>
+        </Link>
       </div>
     </div>
   );
@@ -266,6 +271,7 @@ const PortfolioCard = ({
       </div>
     </div>
   );
+  
 };
 
 export default Portfolio;

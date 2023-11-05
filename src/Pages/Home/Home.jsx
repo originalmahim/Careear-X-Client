@@ -13,11 +13,12 @@ const Home = () => {
            <Brands></Brands>         
            </div>
            <Portfolio></Portfolio>
+           <Download></Download>
            <Testimonial></Testimonial>
            <div className="lg:hidden">
            <Brands></Brands>
           </div>                  
-           <Download></Download>
+           
           </div>
           );
 };

@@ -1,23 +1,45 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import './Header.css'
 import Footer from "../Footer/Footer";
-
+import { useContext } from "react";
+import { AuthContex } from './../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 const Header = () => {
+
+          const {user, LogOut} = useContext(AuthContex)
+
+          const handleLogOut = () => {
+                    LogOut()
+                    .then(() => {
+                      Swal.fire(
+                        'Loged Out',
+                        'You have loged Out successfully',
+                        'success'
+                      )
+                    })
+                  }
+
           const links = <>
           
           <li className="flex">
           <NavLink to= '/'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Home</NavLink>
           </li>
           <li className="flex">
-          <NavLink to= '/contact'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Jobs</NavLink>
+          <NavLink to= '/contact'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">All Jobs</NavLink>
           </li>
+          { user ? <li className="flex">
+          <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Applied Jobs</NavLink>
+          </li> :
           <li className="flex">
-          <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Link</NavLink>
+          <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">About Us</NavLink>
           </li>
+          }
+          { user && <li className="flex">
+          <NavLink  to='/balu' className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Posted Jobs</NavLink>
+          </li> }
           <li className="flex">
-          <NavLink  to='/balu' className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Link</NavLink>
+          <NavLink to= '/Blog'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Blogs</NavLink>
           </li>
-          
           
           </>
           return (
@@ -37,13 +59,20 @@ const Header = () => {
           {links}
           </ul>
           <div className="items-center gap-2 flex-shrink-0 hidden lg:flex">
-          <button className=" flex items-center uppercase gap-2">
+          { user? <button className=" flex items-center uppercase gap-2">
+          <span className="relative flex-shrink-0 w-2 h-2 rounded-full bg-violet-400 text-xl">
+          <span className="absolute flex-shrink-0 w-3 h-3 rounded-full -left-1 -top-1 animate-ping bg-violet-400"></span>
+          </span>Post a Job</button>  : <button className=" flex items-center uppercase gap-2">
           <span className="relative flex-shrink-0 w-2 h-2 rounded-full bg-violet-400 text-xl">
           <span className="absolute flex-shrink-0 w-3 h-3 rounded-full -left-1 -top-1 animate-ping bg-violet-400"></span>
           </span>Apply Now</button>
+          }
+          
+          { user ? <button onClick={handleLogOut} className="btn bg-violet-400 text-white">Log Out</button> :
           <Link to= '/login' className="btn bg-violet-400 text-white">
           Sign In
           </Link>
+          }
           </div>
           <button className="p-4 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">

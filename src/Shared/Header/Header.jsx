@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 import { useContext } from "react";
 import { AuthContex } from './../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { BiLogOutCircle } from 'react-icons/bi';
 const Header = () => {
 
           const {user, LogOut} = useContext(AuthContex)
@@ -25,7 +26,7 @@ const Header = () => {
           <NavLink to= '/'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Home</NavLink>
           </li>
           <li className="flex">
-          <NavLink to= '/contact'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">All Jobs</NavLink>
+          <NavLink to= '/alljobs'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">All Jobs</NavLink>
           </li>
           { user ? <li className="flex">
           <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Applied Jobs</NavLink>
@@ -44,8 +45,8 @@ const Header = () => {
           </>
           return (
           <div>
-          <div className="">
-          <header className=" max-w-7xl mx-auto p-4">
+          <div className="max-w-7xl mx-auto">
+          <header className="  p-4">
           <div className="container flex justify-between h-16 mx-auto">
           <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" className="flex items-center p-2">
           <h1 className="flex items-center gap-1 text-2xl font-medium uppercase">
@@ -59,6 +60,7 @@ const Header = () => {
           {links}
           </ul>
           <div className="items-center gap-2 flex-shrink-0 hidden lg:flex">
+          
           { user? <button className=" flex items-center uppercase gap-2">
           <span className="relative flex-shrink-0 w-2 h-2 rounded-full bg-violet-400 text-xl">
           <span className="absolute flex-shrink-0 w-3 h-3 rounded-full -left-1 -top-1 animate-ping bg-violet-400"></span>
@@ -67,8 +69,39 @@ const Header = () => {
           <span className="absolute flex-shrink-0 w-3 h-3 rounded-full -left-1 -top-1 animate-ping bg-violet-400"></span>
           </span>Apply Now</button>
           }
+
+{
+            user &&  <div className="dropdown dropdown-end">
+             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src={user.photoURL} />
+        </div>
+      </label>
+      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <div className=" px-2 border-b pb-2">
+          <img
+            className="h-24 w-24 rounded-full mx-auto"
+            src={user.photoURL}
+          />
+          <p className="pt-2 text-lg font-semibold">{user.displayName}</p>
+          <p className="text-sm text-gray-600">{user.email}</p>
+        </div>
+
+        <div className="mt-1">
+          <Link to= '/dashboard' className="btn btn-sm bg-violet-300 ">Dashboard
+          </Link>
+        <button onClick={handleLogOut}  className="btn btn-sm bg-violet-300 ">LogOut <BiLogOutCircle className="text-xl"></BiLogOutCircle></button>
+        </div>
+      
+      </ul>
+          </div>
+          }
+
+          {
+            user && <h1>Hi,{user.displayName}</h1>
+          }
           
-          { user ? <button onClick={handleLogOut} className="btn bg-violet-400 text-white">Log Out</button> :
+          { user ? '' :
           <Link to= '/login' className="btn bg-violet-400 text-white">
           Sign In
           </Link>

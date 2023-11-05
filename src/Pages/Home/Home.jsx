@@ -8,9 +8,14 @@ const Home = () => {
           return (
           <div >
            <Banner></Banner>
-           <Brands></Brands>
+           <div className="hidden lg:grid">
+           <Brands></Brands>         
+           </div>
            <Portfolio></Portfolio>
-           <Testimonial></Testimonial>                  
+           <Testimonial></Testimonial>
+           <div className="lg:hidden">
+           <Brands></Brands>
+          </div>                  
           </div>
           );
 };

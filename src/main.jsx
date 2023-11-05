@@ -12,6 +12,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import AuthProvider from './Provider/AuthProvider';
 import AllJobs from './Pages/AllJobs/AllJobs';
 import DashBoard from './Pages/DashBoard/DashBoard';
+import Blogs from './Pages/Blogs/Blogs';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path:'/',
         element: <Home></Home>
+      },
+      {
+        path: '/blogs',
+        element: <Blogs></Blogs>
       },
       {
         path:'/login',

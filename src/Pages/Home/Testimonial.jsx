@@ -18,13 +18,13 @@ const Testimonial = () => {
 
   return (
     <>
-    <div className="text-center items-center mt-12 ">
+    <div className="text-center items-center mt-12 px-3 lg:px-0">
           <h1 className="text-3xl font-bold">Our Happy Customer</h1>
           <p className="text-xl">When it comes to choosing the right web hosting provider, we know how easy it is to get overwhelmed with the number.</p>
         </div>
       <div className="pb-20 pt-20 dark:bg-dark lg:pb-[120px] ">
         
-        <div className="container mx-auto">
+        <div className="container mx-auto px-3 lg:px-0">
           <Swiper slidesPerView={1} ref={sliderRef}>
             <SwiperSlide>
               <SingleTestimonial

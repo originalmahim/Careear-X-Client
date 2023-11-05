@@ -1,8 +1,52 @@
 
+import { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContex } from '../../Provider/AuthProvider';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../Config/firebase.config';
+import Swal from 'sweetalert2';
 const Login = () => {
+  const {LogIn} = useContext(AuthContex)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const [loginError,setLoginError] = useState('')
+   
+  const handleGoogleSignup = () => {
+    signInWithPopup(auth,provider)
+    .then(() => {
+      Swal.fire(
+        'Loged In',
+        'You have Loged In successfully',
+          'success'
+      )
+       navigate(location?.state ? location.state : '/')
+     })
+ }
+
+ const handleLogin = e => {
+  e.preventDefault()
+  const form = e.target;
+  const email = form.email.value;
+  const password = form.password.value;
+  setLoginError('')
+  LogIn(email,password)
+  .then(() => {
+    Swal.fire(
+      'Loged In',
+      'You have Loged In successfully',
+        'success'
+      )
+      navigate(location?.state ? location.state : '/')
+  })
+  .catch(error => {
+    setLoginError(error.message)
+  })
+}
   return (
     <div className="bg-white">
       <div className="flex justify-around items-center max-w-6xl mx-auto lg:my-20">
@@ -19,25 +63,28 @@ const Login = () => {
           </p>
           <div className="my-6 space-y-4">
             <button
-              aria-label="Login with Google"
-              type="button"
+              onClick={handleGoogleSignup}
               className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ri focus:ri dark:border-gray-400 focus:ri"
             >
               <FcGoogle className="text-3xl " />
               <p className='text-xl'>Login with Google</p>
             </button>
           </div>
-          <div className="flex items-center w-full my-4">
-            <p className="px-3 dark:text-gray-400">OR</p>
+          <div className="flex items-center justify-center w-full my-4">
+            <p className="px-3 ">OR</p>
           </div>
-          <form className="space-y-8">
+          { loginError &&
+            <div className="flex items-center justify-center w-full">
+            <p className="px-3 text-red-500 ">{loginError}</p>
+          </div>
+          }
+          <form onSubmit={handleLogin} className="space-y-8">
             <div className="space-y-4">
               <div className="space-y-2">
                 <label className="block text-sm">Email address</label>
                 <input
                   type="email"
                   name="email"
-                  id="email"
                   placeholder="leroy@jenkins.com"
                   className="w-full px-3 py-2 border rounded-md focus:border-violet-400"
                 />
@@ -50,7 +97,6 @@ const Login = () => {
                 <input
                   type="password"
                   name="password"
-                  id="password"
                   placeholder="*****"
                   className="w-full px-3 py-2 border rounded-md focus:border-violet-400"
                 />

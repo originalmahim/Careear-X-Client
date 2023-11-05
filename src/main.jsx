@@ -13,6 +13,7 @@ import AuthProvider from './Provider/AuthProvider';
 import AllJobs from './Pages/AllJobs/AllJobs';
 import DashBoard from './Pages/DashBoard/DashBoard';
 import Blogs from './Pages/Blogs/Blogs';
+import About from './Pages/AboutUs/About';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
       {
         path:'/',
         element: <Home></Home>
+      },
+      {
+        path: '/about',
+        element: <About></About>
+
       },
       {
         path: '/blogs',

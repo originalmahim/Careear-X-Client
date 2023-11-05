@@ -9,13 +9,13 @@ const Header = () => {
           <NavLink to= '/'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Home</NavLink>
           </li>
           <li className="flex">
-          <NavLink to= '/contact'  className="text-xl flex items-center px-4 -mb-1 border-b-2  ">Jobs</NavLink>
+          <NavLink to= '/contact'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Jobs</NavLink>
           </li>
           <li className="flex">
-          <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2  ">Link</NavLink>
+          <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Link</NavLink>
           </li>
           <li className="flex">
-          <NavLink  to='/balu' className="text-xl flex items-center px-4 -mb-1 border-b-2  ">Link</NavLink>
+          <NavLink  to='/balu' className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Link</NavLink>
           </li>
           
           

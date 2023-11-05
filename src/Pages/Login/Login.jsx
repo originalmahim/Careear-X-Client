@@ -1,5 +1,6 @@
 
 import { FcGoogle } from 'react-icons/fc';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -12,9 +13,9 @@ const Login = () => {
           <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
           <p className="text-sm text-center dark:text-gray-400">
             Don't have an account?
-            <a href="#" rel="noopener noreferrer" className="focus:underline text-violet-400 font-bold ml-1 hover:underline">
-              Sign up here
-            </a>
+            <Link to= '/signUp' className="focus:underline text-violet-400 font-bold ml-1 hover:underline">
+              Sign up
+            </Link>
           </p>
           <div className="my-6 space-y-4">
             <button

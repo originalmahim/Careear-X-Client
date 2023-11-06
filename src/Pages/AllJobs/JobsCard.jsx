@@ -5,7 +5,8 @@ import { TbBrandOffice } from 'react-icons/tb';
 
           const JobsCard = () => {
           const [data, setData] = useState([]);
-          const [loading, setLoading] = useState(true); 
+          const [loading, setLoading] = useState(true);
+          
 
           useEffect(() => {
           fetch('http://localhost:5000/alljobs')

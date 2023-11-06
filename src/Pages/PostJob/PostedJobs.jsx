@@ -4,11 +4,51 @@ import { FaCalendarAlt, FaClock, FaDollarSign,  } from 'react-icons/fa';
 import { TbBrandOffice } from 'react-icons/tb';
 import { useContext } from "react";
 import { AuthContex } from './../../Provider/AuthProvider';
+import axios from "axios";
+import Swal from 'sweetalert2'
 
           const PostedJobs = () => {
           const [data, setData] = useState([]);
           const [loading, setLoading] = useState(true);
-          const {user} = useContext(AuthContex) 
+          const {user} = useContext(AuthContex)
+
+          const handleDelete = (id) => {
+          Swal.fire({
+                      title: 'Are you sure?',
+                      text: "You won't be able to revert this!",
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        axios.delete(`http://localhost:5000/alljobs/${user.email}/${id}`)
+                        .then(() => {
+                          const newdata = data.filter(job => job.id !== id)
+                          setData(newdata)
+                
+                          Swal.fire(
+                            'Deleted!',
+                            'Your Job Post has been deleted.',
+                            'success'
+                          )
+                
+                        })
+                        
+                      }
+                    })
+                        
+                  }
+          
+          // const handleDelete = (id) => {
+          // axios.delete(``)
+          // .then((res) => {
+          // console.log(res);
+          // const newdata = info.map( res => res.id !== id)
+          // setData(newdata)
+          // })
+          // }
 
           useEffect(() => {
           fetch(`http://localhost:5000/alljobs/${user.email}`)
@@ -75,7 +115,7 @@ import { AuthContex } from './../../Provider/AuthProvider';
     <div className="mt-4 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0">
       <div className="flex flex-col">
         <button className="btn mb-1 btn-small bg-green-600 text-white mr-2">Update Post</button>
-        <button className="btn mb-1 btn-small bg-red-500 text-white mr-2">Delete Post</button>
+        <button onClick={() => handleDelete(job._id)} className="btn mb-1 btn-small bg-red-500 text-white mr-2">Delete Post</button>
         <Link to= '/' className="btn mb-1 btn-small bg-violet-500 text-white mr-2">
         View Details
         </Link>

@@ -56,15 +56,12 @@ import { TbBrandOffice } from 'react-icons/tb';
       <div className="text-gray-600">
         <FaCalendarAlt className="inline mr-2" /> {job.deadline}
       </div>
-      {/* <div className="text-gray-600">
-        <FaUser className="inline mr-2" /> {job.applicantsNumber} Applicants
-      </div> */}
     </div>
     <div className="mt-4 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0">
       <div className="flex flex-col">
         <button className="btn mb-1 btn-small bg-green-600 text-white mr-2">{job.jobType}</button>
-        <Link to="/login">
-          <button className="btn btn-small bg-violet-600 text-white mr-2">View Details</button>
+        <Link to= '/' className="btn mb-1 btn-small bg-violet-500 text-white mr-2">
+        View Details
         </Link>
       </div>
     </div>

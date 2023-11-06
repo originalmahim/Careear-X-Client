@@ -9,7 +9,7 @@ const Protected = ({children}) => {
           const location = useLocation()
 
           if (loader) {
-          return <h1 className="flex items-center justify-center"><img src="https://wp.alithemes.com/html/jobhub/frontend/assets/imgs/theme/loading.gif" /></h1>
+          return <h1 className="flex my-40 items-center justify-center"><img className="w-80" src="https://wp.alithemes.com/html/jobhub/frontend/assets/imgs/theme/loading.gif" /></h1>
           }
            
           if (user) {

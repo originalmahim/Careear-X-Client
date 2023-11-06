@@ -27,7 +27,7 @@ import { AuthContex } from './../../Provider/AuthProvider';
           return  <h1 className="flex my-40 items-center justify-center"><img className="w-80" src="https://wp.alithemes.com/html/jobhub/frontend/assets/imgs/theme/loading.gif" /></h1>
          }
           return (
-          <div className="max-w-6xl mx-auto my-12">
+          <div className="max-w-6xl mx-auto my-12 px-3 lg:px-0 overflow-x-hidden">
           <div>
           { data.length > 0 ? <div><h1 className="text-center text-2xl font-bold">Your Posted All Jobs Are Here</h1></div> : <div><h1 className="text-center text-2xl font-bold">You did Not Post Any Job Yet</h1></div>
           }
@@ -51,12 +51,13 @@ import { AuthContex } from './../../Provider/AuthProvider';
         </div>
       </div>
     </div>
-    <div className="mt-4 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 text-xl text-blue-500">
-      <FaDollarSign className="inline" />{job.salary}/month
-    </div>
+    
   </div>
   <div className="sm:flex md:flex lg:flex xl:flex justify-between">
     <div className="mt-4 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 text-xl">
+    <div className="mt-4 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 text-xl text-blue-500">
+      <FaDollarSign className="inline" />{job.salary}/month
+    </div>
       <div className="text-gray-600">
         <FaClock className="inline mr-2" />Posted: {job.postingDate} Days ago
       </div>
@@ -66,16 +67,19 @@ import { AuthContex } from './../../Provider/AuthProvider';
       <div className="text-gray-600">
         <FaCalendarAlt className="inline mr-2" /> {job.deadline}
       </div>
-      {/* <div className="text-gray-600">
-        <FaUser className="inline mr-2" /> {job.applicantsNumber} Applicants
-      </div> */}
+      <div className="text-gray-600">
+        Job-Type : {job.jobType}
+      </div>
+      
     </div>
     <div className="mt-4 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0">
       <div className="flex flex-col">
-        <button className="btn mb-1 btn-small bg-green-600 text-white mr-2">{job.jobType}</button>
-        <Link to="/login">
-          <button className="btn btn-small bg-violet-600 text-white mr-2">View Details</button>
+        <button className="btn mb-1 btn-small bg-green-600 text-white mr-2">Update Post</button>
+        <button className="btn mb-1 btn-small bg-red-500 text-white mr-2">Delete Post</button>
+        <Link to= '/' className="btn mb-1 btn-small bg-violet-500 text-white mr-2">
+        View Details
         </Link>
+        
       </div>
     </div>
   </div>

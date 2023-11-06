@@ -25,7 +25,7 @@ import Swal from 'sweetalert2'
                       if (result.isConfirmed) {
                         axios.delete(`http://localhost:5000/alljobs/${user.email}/${id}`)
                         .then(() => {
-                          const newdata = data.filter(job => job.id !== id)
+                          const newdata = data.filter(job => job._id !== id)
                           setData(newdata)
                 
                           Swal.fire(
@@ -40,16 +40,6 @@ import Swal from 'sweetalert2'
                     })
                         
                   }
-          
-          // const handleDelete = (id) => {
-          // axios.delete(``)
-          // .then((res) => {
-          // console.log(res);
-          // const newdata = info.map( res => res.id !== id)
-          // setData(newdata)
-          // })
-          // }
-
           useEffect(() => {
           fetch(`http://localhost:5000/alljobs/${user.email}`)
           .then(res => res.json())

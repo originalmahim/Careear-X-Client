@@ -34,7 +34,7 @@ const Header = () => {
           <NavLink to= '/alljobs'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">All Jobs</NavLink>
           </li>
           { user ? <li className="flex">
-          <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Applied Jobs</NavLink>
+          <NavLink to= '/appliedJob'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Applied Jobs</NavLink>
           </li> :
           <li className="flex">
           <NavLink to= '/about'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">About Us</NavLink>

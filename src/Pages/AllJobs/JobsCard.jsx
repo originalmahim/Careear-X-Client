@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCalendarAlt, FaClock, FaDollarSign, FaUser } from 'react-icons/fa';
+import { FaCalendarAlt, FaClock, FaDollarSign,  } from 'react-icons/fa';
+import { TbBrandOffice } from 'react-icons/tb';
 
 const JobsCard = () => {
           const [data,setdata] = useState([])
@@ -37,11 +38,14 @@ const JobsCard = () => {
         <FaClock className="inline mr-2" />Posted: {job.postingDate} Days ago
       </div>
       <div className="text-gray-600">
-        <FaCalendarAlt className="inline mr-2" /> {job.deadline}
+      <TbBrandOffice className="inline mr-2" /> Job Offered By: {job.postedBy} 
       </div>
       <div className="text-gray-600">
-        <FaUser className="inline mr-2" /> {job.applicantsNumber} Applicants
+        <FaCalendarAlt className="inline mr-2" /> {job.deadline}
       </div>
+      {/* <div className="text-gray-600">
+        <FaUser className="inline mr-2" /> {job.applicantsNumber} Applicants
+      </div> */}
     </div>
     <div className="mt-4 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0">
       <div className="flex flex-col">

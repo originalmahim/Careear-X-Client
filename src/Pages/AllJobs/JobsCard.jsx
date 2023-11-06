@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCalendarAlt, FaClock, FaDollarSign,  } from 'react-icons/fa';
 import { TbBrandOffice } from 'react-icons/tb';
 
-const JobsCard = () => {
-          const [data,setdata] = useState([])
-          fetch('./../../../public/Jobs.json')
+          const JobsCard = () => {
+          const [data, setData] = useState([]);
+          const [loading, setLoading] = useState(true); 
+
+          useEffect(() => {
+          fetch('http://localhost:5000/alljobs')
           .then(res => res.json())
-          .then(data => {setdata(data)
-          console.log(data);
+          .then(data => {
+          setData(data);
+          setLoading(false); 
           })
+          .catch(error => {
+          console.error("Error fetching data:", error);
+          setLoading(false); 
+          });
+          }, []);
+
+         if (loading) {
+          return  <h1 className="flex my-40 items-center justify-center"><img className="w-80" src="https://wp.alithemes.com/html/jobhub/frontend/assets/imgs/theme/loading.gif" /></h1>
+         }
           return (
           <div className="my-12">
           { data.map((job, index) => <div key={index}>

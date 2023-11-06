@@ -65,7 +65,7 @@ const Header = () => {
           </ul>
           <div className="items-center gap-2 flex-shrink-0 hidden lg:flex">
           
-          { user? <Link to= '/addjob' className=" flex items-center uppercase gap-2">
+          { user? <Link to= '/postJob' className=" flex items-center uppercase gap-2">
           <span className="relative flex-shrink-0 w-2 h-2 rounded-full bg-violet-400 text-xl">
           <span className="absolute flex-shrink-0 w-3 h-3 rounded-full -left-1 -top-1 animate-ping bg-violet-400"></span>
           </span>Post a Job</Link>  : <Link to= '/alljobs' className=" flex items-center uppercase gap-2">

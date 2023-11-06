@@ -15,6 +15,7 @@ import DashBoard from './Pages/DashBoard/DashBoard';
 import Blogs from './Pages/Blogs/Blogs';
 import About from './Pages/AboutUs/About';
 import Protected from './Pages/Protected/Protected';
+import PostJob from './Pages/PostJob/PostJob';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Protected><DashBoard></DashBoard></Protected>
+      },
+      {
+        path: '/postJob',
+        element: <Protected><PostJob></PostJob></Protected>
       }
     ]
   },

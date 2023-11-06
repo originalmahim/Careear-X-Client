@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContex } from './../../Provider/AuthProvider';
 import axios from "axios";
+import Swal from 'sweetalert2';
 
 const PostJob = () => {
           const {user} = useContext(AuthContex)
@@ -45,10 +46,14 @@ const PostJob = () => {
                     postedPersonEmail,
                     totalVacancy,
                   };
-                  console.log(jobInfo);
                   axios.post('http://localhost:5000/alljobs',jobInfo)
-                  .then( response => {
-                    console.log(response);
+                  .then( () => {
+                    Swal.fire(
+                    'Job Posted',
+                    'You have Posted New Job successfully',
+                    'success'
+                    )
+                    form.reset();
                   })
           }
           return (

@@ -16,6 +16,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import About from './Pages/AboutUs/About';
 import Protected from './Pages/Protected/Protected';
 import PostJob from './Pages/PostJob/PostJob';
+import PostedJobs from './Pages/PostJob/PostedJobs';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: '/postJob',
         element: <Protected><PostJob></PostJob></Protected>
+      },
+      {
+        path: '/postedJobs',
+        element: <Protected><PostedJobs></PostedJobs></Protected>
       }
     ]
   },

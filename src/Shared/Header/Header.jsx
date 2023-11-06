@@ -41,7 +41,7 @@ const Header = () => {
           </li>
           }
           { user && <li className="flex">
-          <NavLink  to='/balu' className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Posted Jobs</NavLink>
+          <NavLink  to='/postedJobs' className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Posted Jobs</NavLink>
           </li> }
           <li className="flex">
           <NavLink to= '/blogs'  className="text-xl flex items-center px-4 -mb-1 border-b-2 border-transparent ">Blogs</NavLink>

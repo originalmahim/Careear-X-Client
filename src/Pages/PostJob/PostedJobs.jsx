@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCalendarAlt, FaClock, FaDollarSign,  } from 'react-icons/fa';
 import { TbBrandOffice } from 'react-icons/tb';
+import { useContext } from "react";
+import { AuthContex } from './../../Provider/AuthProvider';
 
-          const JobsCard = () => {
+          const PostedJobs = () => {
           const [data, setData] = useState([]);
-          const [loading, setLoading] = useState(true); 
+          const [loading, setLoading] = useState(true);
+          const {user} = useContext(AuthContex) 
 
           useEffect(() => {
-          fetch('http://localhost:5000/alljobs')
+          fetch(`http://localhost:5000/alljobs/${user.email}`)
           .then(res => res.json())
           .then(data => {
           setData(data);
@@ -18,13 +21,20 @@ import { TbBrandOffice } from 'react-icons/tb';
           console.error("Error fetching data:", error);
           setLoading(false); 
           });
-          }, []);
+          }, [user.email]);
 
          if (loading) {
           return  <h1 className="flex my-40 items-center justify-center"><img className="w-80" src="https://wp.alithemes.com/html/jobhub/frontend/assets/imgs/theme/loading.gif" /></h1>
          }
           return (
-          <div className="my-12">
+          <div className="max-w-6xl mx-auto my-12">
+          <div>
+          { data.length > 0 ? <div><h1 className="text-center text-2xl font-bold">Your Posted All Jobs Are Here</h1></div> : <div><h1 className="text-center text-2xl font-bold">You did Not Post Any Job Yet</h1></div>
+          }
+          </div>
+          
+          { data.length > 0 ?
+          <div >
           { data.map((job, index) => <div key={index}>
           <div className="bg-white my-4 p-4 rounded-lg shadow-lg hover:shadow-xl transform transition-transform hover:-translate-y-2 animate__animated animate__fadeInUp" style={{ visibility: 'visible', animationName: 'fadeInUp' }}>
   <div className="sm:flex md:flex lg:flex xl:flex items-center justify-between">
@@ -69,13 +79,19 @@ import { TbBrandOffice } from 'react-icons/tb';
       </div>
     </div>
   </div>
-</div>
-                    
+          </div>
           </div>)
           }
                              
+          </div> : <div className="p-4">
+          <div className="flex items-center justify-center">
+          <img src="https://img.freepik.com/premium-vector/employees-looking-job-employees-using-magnifying-glass-searching-job-search-bar_70921-1842.jpg"  />
+          </div>
+           
+          </div>}
+          
           </div>
           );
 };
 
-export default JobsCard;
+export default PostedJobs;

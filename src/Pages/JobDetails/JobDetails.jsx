@@ -1,11 +1,73 @@
 
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-
-
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { AuthContex } from './../../Provider/AuthProvider';
+const MySwal = withReactContent(Swal);
+import axios from 'axios';
 
 const JobDetails = () => {
           const job = useLoaderData()
-          console.log(job);
+          const {user} = useContext(AuthContex);
+          job.applicantEmail = user.email;
+
+          const handleApply = () => {
+            if (job.postedPersonEmail === user.email) {
+              return Swal.fire('Submission Failed', 'You Can Not Apply To your Won Posted Job', 'error');
+            }
+            MySwal.fire({
+              title: 'Submit Application',
+              html: (
+                <form className="application-form">
+                  <div className="form-group">
+                    <label htmlFor="name">Name : </label>
+                    <input
+                      type="text"
+                      value={user.displayName}
+                      readOnly
+                    />
+                  </div>
+                  <div className="form-group w-full ">
+                    <label htmlFor="email">Email : </label>
+                    <input className="w-2/4 "
+                      type="email"
+                      value={user.email}
+                      readOnly
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="resumeLink">Resume Link : </label>
+                    <input className=""
+                      type="text"
+                      id="resumeLink"
+                      placeholder="Enter your resume link"
+                    />
+                  </div>
+                </form>
+              ),
+              showCancelButton: true,
+              confirmButtonText: 'Apply',
+              preConfirm: async () => {
+                // const resumeLink = document.getElementById('resumeLink').value;
+                try {
+                  const response = await axios.post('http://localhost:5000/appliedJob', job);
+                  if (response.status === 200) {
+                    Swal.fire('Successfully Submitted', '', 'success');
+                  } else {
+                    Swal.fire('Submission Failed', 'An error occurred.', 'error');
+                  }
+                } catch (error) {
+                  Swal.fire('Submission Failed', error.message, 'error');
+                }
+              },
+            })
+            .then(() => {
+              // Handle the result here if needed
+            });
+          }
+         
+
   return (
           <div className="max-w-6xl lg:grid justify-center gap-10 lg:grid-cols-10 mx-auto my-8">
           <div className=" lg:col-span-7 shadow-lg  overflow-hidden">
@@ -154,7 +216,7 @@ const JobDetails = () => {
           <p className="text-gray-500 mb-0">Headquarter : {job?.headquarters}</p>
           </div>
           <div className="mt-2">
-          <button className="btn bg-blue-400 text-white">Apply Now</button>
+          <button onClick={handleApply} className="btn bg-blue-400 text-white">Apply Now</button>
           </div>
           </div>
           </li>

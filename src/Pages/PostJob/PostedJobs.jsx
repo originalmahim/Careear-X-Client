@@ -106,7 +106,7 @@ import Swal from 'sweetalert2'
       <div className="flex flex-col">
         <button className="btn mb-1 btn-small bg-green-600 text-white mr-2">Update Post</button>
         <button onClick={() => handleDelete(job._id)} className="btn mb-1 btn-small bg-red-500 text-white mr-2">Delete Post</button>
-        <Link to= '/' className="btn mb-1 btn-small bg-violet-500 text-white mr-2">
+        <Link to={`/details/${job._id}`} className="btn mb-1 btn-small bg-violet-500 text-white mr-2">
         View Details
         </Link>
         

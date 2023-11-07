@@ -18,6 +18,7 @@ import Protected from './Pages/Protected/Protected';
 import PostJob from './Pages/PostJob/PostJob';
 import PostedJobs from './Pages/PostJob/PostedJobs';
 import JobDetails from './Pages/JobDetails/JobDetails';
+import AppliedJob from './Pages/AppliedJob/AppliedJob';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
         element: <Protected><JobDetails></JobDetails></Protected>,
         loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
 
+      },
+      {
+        path: '/appliedjobs',
+        element: <Protected><AppliedJob></AppliedJob></Protected>
       }
     ]
   },

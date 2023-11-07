@@ -92,6 +92,7 @@ const Portfolio = () => {
             deadline={job.deadline}
             salary={job.salary}
             applicantsNumber={job.applicantsNumber}
+            id={job._id}
           />
         ))}
       </div>
@@ -105,6 +106,7 @@ const Portfolio = () => {
 };
 
 const PortfolioCard = ({
+  id,
   showCard,
   category,
   brandImg,
@@ -157,9 +159,9 @@ const PortfolioCard = ({
           <div className="flex items-center">
             <div className="flex-grow">
               <button className="btn btn-small bg-green-600 text-white mr-2">{jobType}</button>
-              <Link to= '/login'>
-              <button href="job-grid-2.html" className="btn btn-small  bg-violet-600 text-white mr-2">View Details</button>
-              </Link>
+              <Link to={`/details/${id}`} className="btn mb-1 btn-small bg-violet-500 text-white mr-2">
+        View Details
+        </Link>
             </div>
           </div>
         </div>

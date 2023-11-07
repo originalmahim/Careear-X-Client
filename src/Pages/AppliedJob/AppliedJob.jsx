@@ -4,7 +4,7 @@ import { FaCalendarAlt, FaClock, FaDollarSign,  } from 'react-icons/fa';
 import { TbBrandOffice } from 'react-icons/tb';
 import { useContext } from "react";
 import { AuthContex } from './../../Provider/AuthProvider';
-import axios from "axios";
+
 
 
           const AppliedJob = () => {
@@ -29,7 +29,7 @@ import axios from "axios";
           return  <h1 className="flex my-40 items-center justify-center"><img className="w-80" src="https://wp.alithemes.com/html/jobhub/frontend/assets/imgs/theme/loading.gif" /></h1>
          }
           return (
-          <div className="max-w-6xl mx-auto my-12 px-3 lg:px-0 overflow-x-hidden">
+          <div className="max-w-6xl mx-auto my-12 px-3 lg:px-0 overflow-x-hidden" style={{ overflowX: 'hidden' }} >
           <div>
           { data.length > 0 ? <div><h1 className="text-center text-2xl font-bold">Your Applied All Jobs Are Here</h1></div> : <div><h1 className="text-center text-2xl font-bold">You did Not Applied To Any Job Yet</h1></div>
           }

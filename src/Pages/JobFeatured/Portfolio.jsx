@@ -16,7 +16,7 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-3 lg:px-0 ">
+    <div className="max-w-7xl mx-auto px-3 lg:px-0 " style={{ overflowX: 'hidden' }}>
       <div className="text-center my-6">
       <h2 className="text-black mb-3 text-3xl leading-[1.208] font-bold sm:text-4xl md:text-[40px]">
       Featured Jobs

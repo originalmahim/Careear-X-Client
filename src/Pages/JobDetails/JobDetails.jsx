@@ -69,7 +69,7 @@ const JobDetails = () => {
          
 
   return (
-          <div className="max-w-6xl lg:grid justify-center gap-10 lg:grid-cols-10 mx-auto my-8">
+          <div className="max-w-6xl lg:grid justify-center gap-10 lg:grid-cols-10 mx-auto my-8" style={{ overflowX: 'hidden' }} >
           <div className=" lg:col-span-7 shadow-lg  overflow-hidden">
   <div className=" p-4">
     <div>

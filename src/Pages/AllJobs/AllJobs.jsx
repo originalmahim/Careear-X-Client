@@ -4,7 +4,7 @@ import JobsCard from "./JobsCard";
 
 const AllJobs = () => {
           return (
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto" style={{ overflowX: 'hidden' }} >
            <div className="flex flex-col-reverse">
           <div className="">
           <JobsCard></JobsCard>

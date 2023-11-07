@@ -7,7 +7,7 @@ import Testimonial from "./Testimonial";
 
 const Home = () => {
           return (
-          <div >
+          <div style={{ overflowX: 'hidden' }} >
            <Banner></Banner>
            <div className="hidden lg:grid">
            <Brands></Brands>         

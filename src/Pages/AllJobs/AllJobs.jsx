@@ -58,7 +58,7 @@ const AllJobs = () => {
           <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mt-4 md:mt-0">
           <button
-          className="w-full md:w-auto bg-blue-500 text-white rounded-lg py-2 px-4 hover:bg-blue-600 focus:outline-none"
+          className="w-full hidden lg:grid md:w-auto bg-blue-500 text-white rounded-lg py-2 px-4 hover:bg-blue-600 focus:outline-none"
           >
           Find Now
           </button>

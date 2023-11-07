@@ -39,11 +39,11 @@
       <div>
       {data.length > 0 ? (
       <div>
-      <h1 className="text-center text-2xl font-bold">Your Applied All Jobs Are Here</h1>
+      <h1 className="text-center text-2xl my-1 font-bold">Your Applied All Jobs Are Here</h1>
       </div>
       ) : (
       <div>
-      <h1 className="text-center text-2xl font-bold">You did Not Applied To Any Job Yet</h1>
+      <h1 className="text-center text-2xl my-1 font-bold">You did Not Applied To Any Job Yet</h1>
       </div>
       )}
       </div>
@@ -73,7 +73,7 @@
       <div className="flex flex-col md:flex-row items-center justify-between">
       <div className="mt-4 md:mt-0">
       <button
-      className="w-full md:w-auto bg-blue-500 text-white rounded-lg py-2 px-4 hover:bg-blue-600 focus:outline-none"
+      className="w-full hidden lg:grid md:w-auto bg-blue-500 text-white rounded-lg py-2 px-4 hover:bg-blue-600 focus:outline-none"
       >
       Find Now
       </button>

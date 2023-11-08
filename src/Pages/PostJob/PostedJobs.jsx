@@ -6,12 +6,13 @@ import { useContext } from "react";
 import { AuthContex } from './../../Provider/AuthProvider';
 import axios from "axios";
 import Swal from 'sweetalert2'
+import useAxiosSecure from "../../Hooks/UseAxiosSecure";
 
           const PostedJobs = () => {
           const [data, setData] = useState([]);
           const [loading, setLoading] = useState(true);
           const {user} = useContext(AuthContex)
-
+          const axiosSecure = useAxiosSecure()
           const handleDelete = (id) => {
           Swal.fire({
                       title: 'Are you sure?',
@@ -40,18 +41,17 @@ import Swal from 'sweetalert2'
                     })
                         
                   }
+          const url = `/alljobs/${user.email}`;
           useEffect(() => {
-          fetch(`http://localhost:5000/alljobs/${user.email}`)
-          .then(res => res.json())
-          .then(data => {
-          setData(data);
-          setLoading(false); 
-          })
-          .catch(error => {
-          console.error("Error fetching data:", error);
-          setLoading(false); 
-          });
-          }, [user.email]);
+            axiosSecure.get(url)
+            .then(res => {
+              setLoading(false)
+              setData(res.data)
+              
+            })
+    
+        }, [url, axiosSecure]);
+    
 
          if (loading) {
           return  <h1 className="flex my-40 items-center justify-center"><img className="w-80" src="https://wp.alithemes.com/html/jobhub/frontend/assets/imgs/theme/loading.gif" /></h1>

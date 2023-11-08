@@ -4,25 +4,23 @@
       import { TbBrandOffice } from 'react-icons/tb';
       import { useContext } from "react";
       import { AuthContex } from './../../Provider/AuthProvider';
+      import useAxiosSecure from "../../Hooks/UseAxiosSecure";
 
       const AppliedJob = () => {
       const [data, setData] = useState([]);
       const [loading, setLoading] = useState(true);
       const [searchQuery, setSearchQuery] = useState(""); 
       const { user } = useContext(AuthContex);
-
-      useEffect(() => {
-      fetch(`http://localhost:5000/appliedJob/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-      setData(data);
-      setLoading(false);
-      })
-      .catch((error) => {
-      console.error("Error fetching data:", error);
-      setLoading(false);
-      });
-      }, [user.email]);
+      const axiosSecure = useAxiosSecure();
+      const url = `/appliedJob/${user.email}`;
+          useEffect(() => {
+            axiosSecure.get(url)
+            .then(res => {
+              setLoading(false)
+              setData(res.data)
+              })
+    
+        }, [url, axiosSecure]);
 
       if (loading) {
       return (

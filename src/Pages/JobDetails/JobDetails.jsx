@@ -7,7 +7,6 @@ import withReactContent from 'sweetalert2-react-content';
 import { AuthContex } from './../../Provider/AuthProvider';
 const MySwal = withReactContent(Swal);
 import axios from 'axios';
-
 const JobDetails = () => {
           const job = useLoaderData()
           const {user} = useContext(AuthContex);
@@ -197,8 +196,9 @@ const JobDetails = () => {
           </div>
           </div>
           <div>
-          <h1>Posted : {job?.postingDate} Days A</h1>
+          <h1>Posted On : {job?.postingDate}</h1>
           <h1>Deadline : {job?.deadline}</h1>
+          <h1>Applied : {job?.applicantsNumber} Person</h1>
           <hr />
           </div>
           <div className="mt-4">

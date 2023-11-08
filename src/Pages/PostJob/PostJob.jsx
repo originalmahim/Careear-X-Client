@@ -19,7 +19,7 @@ const PostJob = () => {
           const employer = form.employer.value;
           const jobTitle = form.jobTitle.value;
           const jobType = form.jobType.value;
-          const postingDate = form.postingDate.value;
+          const postingDate = moment().format('MMM Do, h:mm a');
           const deadline = moment(form.deadline.value).format("MMM Do YYYY")
           const salary = form.salary.value;
           const applicantsNumber = "0";
@@ -120,11 +120,6 @@ const PostJob = () => {
           <div>
           <label htmlFor="jobType" className="text-gray-600 font-medium">Job Type:</label>
           <input type="text" id="jobType" name="jobType" className="border border-gray-300 rounded-md p-2 w-full" />
-          </div>
-          {/* Posting Date */}
-          <div>
-          <label htmlFor="postingDate" className="text-gray-600 font-medium">Posting Date:</label>
-          <input type="date"  name="postingDate" className="border border-gray-300 rounded-md p-2 w-full" />
           </div>
           {/* Deadline */}
           <div>

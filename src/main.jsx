@@ -67,7 +67,7 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element: <Protected><JobDetails></JobDetails></Protected>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({params}) => fetch(`https://career-canvas-backend.vercel.app/jobs/${params.id}`)
 
       },
       {
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
       {
         path: '/updatePost/:id',
         element: <Protected><UpdateJobPost></UpdateJobPost></Protected>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({params}) => fetch(`https://career-canvas-backend.vercel.app/jobs/${params.id}`)
       }
     ]
   },

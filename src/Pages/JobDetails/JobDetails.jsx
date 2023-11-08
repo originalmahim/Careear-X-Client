@@ -184,13 +184,13 @@ const JobDetails = () => {
           <a rel="noopener noreferrer" href="#" aria-label="GitHub" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
         <FaGithub />
       </a>
-      <a rel="noopener noreferrer" href="#" aria-label="Dribble" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+      <a  aria-label="Dribble" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
         <FaDribbble />
       </a>
-      <a rel="noopener noreferrer" href="#" aria-label="Twitter" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+      <a  aria-label="Twitter" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
         <FaTwitter />
       </a>
-      <a rel="noopener noreferrer" href="#" aria-label="Email" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
+      <a  aria-label="Email" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">
         <FaEnvelope />
       </a>
           </div>

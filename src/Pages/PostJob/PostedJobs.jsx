@@ -121,7 +121,7 @@ import Swal from 'sweetalert2'
                              
           </div> : <div className="p-4">
           <div className="flex items-center justify-center">
-          <img src="https://img.freepik.com/premium-vector/employees-looking-job-employees-using-magnifying-glass-searching-job-search-bar_70921-1842.jpg"  />
+          <img  src="https://st.depositphotos.com/18722762/51522/v/450/depositphotos_515228796-stock-illustration-online-registration-sign-login-account.jpg"  />
           </div>
            
           </div>}

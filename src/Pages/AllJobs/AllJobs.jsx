@@ -10,7 +10,7 @@ const AllJobs = () => {
   const [searchQuery, setSearchQuery] = useState(""); 
 
           useEffect(() => {
-          fetch(`http://localhost:5000/alljobs`)
+          fetch(`https://career-canvas-backend.vercel.app/jobs`)
           .then((res) => res.json())
           .then((data) => {
           setData(data);

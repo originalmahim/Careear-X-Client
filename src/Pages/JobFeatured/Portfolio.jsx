@@ -5,7 +5,7 @@ import { FaCalendarAlt, FaClock, FaDollarSign, FaUser } from 'react-icons/fa';
 const Portfolio = () => {
 
   const [jobData,setdata] = useState([])
-          fetch('http://localhost:5000/alljobs')
+          fetch('https://career-canvas-backend.vercel.app/jobs')
           .then(res => res.json())
           .then(data => {setdata(data)
           })

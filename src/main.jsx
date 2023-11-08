@@ -20,10 +20,12 @@ import PostedJobs from './Pages/PostJob/PostedJobs';
 import JobDetails from './Pages/JobDetails/JobDetails';
 import AppliedJob from './Pages/AppliedJob/AppliedJob';
 import UpdateJobPost from './Pages/UpdateJobPost/UpdateJobPost';
+import ErrorPage from './Pages/ErrorPage/ErrorPage';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Header></Header>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path:'/',

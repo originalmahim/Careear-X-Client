@@ -1,19 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCalendarAlt, FaClock, FaDollarSign, FaUser } from 'react-icons/fa';
+import { useEffect } from "react";
 
 const Portfolio = () => {
 
   const [jobData,setdata] = useState([])
-          fetch('https://career-canvas-backend.vercel.app/jobs')
-          .then(res => res.json())
-          .then(data => {setdata(data)
-          })
-  const [showCard, setShowCard] = useState("all");
+      useEffect(() => {
+      fetch(`https://career-canvas-backend.vercel.app/alljobs`)
+      .then((res) => res.json())
+      .then((data) => {
+      setdata(data);
+      })
+      .catch((error) => {
+      console.error("Error fetching data:", error);
+      });
+      }, []);
+          const [showCard, setShowCard] = useState("all");
 
-  const handlejobs = (category) => {
-    setShowCard(category);
-  };
+          const handlejobs = (category) => {
+           setShowCard(category);
+          };
 
   return (
     <div className="max-w-7xl mx-auto px-3 lg:px-0 " style={{ overflowX: 'hidden' }}>

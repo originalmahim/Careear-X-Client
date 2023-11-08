@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCalendarAlt, FaClock, FaDollarSign, FaSearch } from 'react-icons/fa';
 import { TbBrandOffice } from 'react-icons/tb';
+import { Helmet } from "react-helmet";
 
 
 const AllJobs = () => {
@@ -10,7 +11,7 @@ const AllJobs = () => {
   const [searchQuery, setSearchQuery] = useState(""); 
 
           useEffect(() => {
-          fetch(`https://career-canvas-backend.vercel.app/jobs`)
+          fetch(`https://career-canvas-backend.vercel.app/alljobs`)
           .then((res) => res.json())
           .then((data) => {
           setData(data);
@@ -32,9 +33,12 @@ const AllJobs = () => {
           </h1>
           );
           }
-  return (
+                return (
           <div className="max-w-6xl mx-auto my-12 px-3 lg:px-0 overflow-x-hidden" style={{ overflowX: 'hidden' }}>
           <div>
+        <Helmet>
+        <title>Career X | All Jobs</title>
+        </Helmet>
           <div className=" bg-violet-100 shadow-lg rounded-lg md:p-6">
           <div className="md:flex md:space-x-4">
           <div className="md:w-5/12">

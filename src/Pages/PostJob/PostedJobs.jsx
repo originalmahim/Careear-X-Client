@@ -7,6 +7,7 @@ import { AuthContex } from './../../Provider/AuthProvider';
 import axios from "axios";
 import Swal from 'sweetalert2'
 import useAxiosSecure from "../../Hooks/UseAxiosSecure";
+import { Helmet } from "react-helmet";
 
           const PostedJobs = () => {
           const [data, setData] = useState([]);
@@ -58,6 +59,9 @@ import useAxiosSecure from "../../Hooks/UseAxiosSecure";
          }
           return (
           <div className="max-w-6xl mx-auto my-12 px-3 lg:px-0 overflow-x-hidden">
+            <Helmet>
+            <title>Career X | Posted Jobs</title>
+            </Helmet>
           <div>
           { data.length > 0 ? <div><h1 className="text-center text-2xl font-bold">Your Posted All Jobs Are Here</h1></div> : <div><h1 className="text-center text-2xl font-bold">You did Not Post Any Job Yet</h1></div>
           }

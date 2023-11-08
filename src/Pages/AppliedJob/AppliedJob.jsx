@@ -5,6 +5,7 @@
       import { useContext } from "react";
       import { AuthContex } from './../../Provider/AuthProvider';
       import useAxiosSecure from "../../Hooks/UseAxiosSecure";
+import { Helmet } from "react-helmet";
 
       const AppliedJob = () => {
       const [data, setData] = useState([]);
@@ -35,6 +36,9 @@
       return (
       <div className="max-w-6xl mx-auto my-12 px-3 lg:px-0 overflow-x-hidden" style={{ overflowX: 'hidden' }}>
       <div>
+        <Helmet>
+        <title>Career X | Applied Jobs</title>
+        </Helmet>
       {data.length > 0 ? (
       <div>
       <h1 className="text-center text-2xl my-1 font-bold">Your Applied All Jobs Are Here</h1>

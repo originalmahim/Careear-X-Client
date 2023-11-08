@@ -49,7 +49,7 @@ const UpdateJobPost = () => {
                               totalVacancy,
                     };
                 
-                    axios.put(`http://localhost:5000/alljobs/${user.email}/${update._id}`, jobInfo)
+                    axios.put(`https://career-canvas-backend.vercel.app/alljobs/${user.email}/${update._id}`, jobInfo)
                       .then(() => {
                         Swal.fire(
                           'Job Post Updated',

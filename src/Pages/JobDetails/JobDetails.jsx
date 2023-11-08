@@ -70,7 +70,7 @@ const JobDetails = () => {
               preConfirm: async () => {
                 // const resumeLink = document.getElementById('resumeLink').value;
                 try {
-                  const response = await axios.post('http://localhost:5000/appliedJob', job);
+                  const response = await axios.post('https://career-canvas-backend.vercel.app/appliedJob', job);
                   if (response.status === 200) {
                     Swal.fire('Successfully Submitted', '', 'success');
                   } else {
@@ -196,7 +196,7 @@ const JobDetails = () => {
           </div>
           </div>
           <div>
-          <h1>Posted On : {job?.postingDate}</h1>
+          <h1>Posted On : {job?.postingDate ? job?.postingDate : "Nov 8th, 3:42 pm"}</h1>
           <h1>Deadline : {job?.deadline}</h1>
           <h1>Applied : {job?.applicantsNumber} Person</h1>
           <hr />

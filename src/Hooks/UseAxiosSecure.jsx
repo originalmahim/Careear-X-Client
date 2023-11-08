@@ -6,7 +6,7 @@ import { AuthContex } from './../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const axiosSecure = axios.create({
-    baseURL: `http://localhost:5000`,
+    baseURL: `https://career-canvas-backend.vercel.app`,
     withCredentials: true
 });
 

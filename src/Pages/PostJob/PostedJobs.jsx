@@ -24,7 +24,7 @@ import useAxiosSecure from "../../Hooks/UseAxiosSecure";
                       confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                       if (result.isConfirmed) {
-                        axios.delete(`http://localhost:5000/alljobs/${user.email}/${id}`)
+                        axios.delete(`https://career-canvas-backend.vercel.app/alljobs/${user.email}/${id}`)
                         .then(() => {
                           const newdata = data.filter(job => job._id !== id)
                           setData(newdata)

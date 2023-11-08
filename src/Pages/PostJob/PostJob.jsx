@@ -46,7 +46,7 @@ const PostJob = () => {
                     postedPersonEmail,
                     totalVacancy,
                   };
-                  axios.post('http://localhost:5000/alljobs',jobInfo)
+                  axios.post('https://career-canvas-backend.vercel.app/alljobs',jobInfo)
                   .then( () => {
                     Swal.fire(
                     'Job Posted',

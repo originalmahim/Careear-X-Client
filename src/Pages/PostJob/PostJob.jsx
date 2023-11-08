@@ -3,6 +3,7 @@ import { AuthContex } from './../../Provider/AuthProvider';
 import axios from "axios";
 import Swal from 'sweetalert2';
 import moment from 'moment';
+import { Helmet } from "react-helmet";
 const PostJob = () => {
           const {user} = useContext(AuthContex)
           const handlePost = e => {
@@ -58,6 +59,9 @@ const PostJob = () => {
           }
           return (
           <div className=" bg-orange-200">
+            <Helmet>
+            <title>Career X | Post New Job</title>
+            </Helmet>
           <div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ede9fe" fillOpacity="1" d="M0,288L48,272C96,256,192,224,288,208C384,192,480,192,576,202.7C672,213,768,235,864,224C960,213,1056,171,1152,176C1248,181,1344,235,1392,261.3L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
           </div>

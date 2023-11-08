@@ -6,6 +6,7 @@ import { AuthContex } from '../../Provider/AuthProvider';
 import { GoogleAuthProvider, getAuth, signInWithPopup, updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2'
 import app from '../../Config/firebase.config';
+import { Helmet } from 'react-helmet';
 
 
 const SignUp = () => {
@@ -79,9 +80,9 @@ const SignUp = () => {
 
           return (
           <div className=''>
-            {/* <Helmet>
-              <title>Wazo - Sign Up</title>
-            </Helmet> */}
+            <Helmet>
+            <title>Career X | Sign Up</title>
+            </Helmet>
           <div className="max-w-6xl mx-auto flex items-center justify-center  text-xl mb-6  ">
           <div className='hidden lg:grid'>
           <img className='' src="https://i.ibb.co/Lg5HBfR/Screenshot-2023-11-05-123412.png" alt="" />
